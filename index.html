@@ -1,44 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Site Under Maintenance</title>
-  <style>
-    body {
-      background-color: #f4f4f4;
-      color: #333;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwal Jamodkar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .gear {
-      font-size: 80px;
-      color: #555;
-      animation: spin 2s linear infinite;
-      display: inline-block;
-      margin-bottom: 20px;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #333;
+            background: #fff;
+        }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
 
-    .message {
-      font-size: 24px;
-      font-weight: bold;
-    }
-  </style>
-  <!-- Font Awesome for gear icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        /* Header */
+        .header {
+            border-bottom: 1px solid #ddd;
+            padding: 8px 0;
+            margin-bottom: 15px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cards and sections */
+        .card {
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        /* About section */
+        .about-content {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            background-image: url('/src/myphoto.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2px solid #ccc;
+            flex-shrink: 0;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .bio {
+            flex: 1;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* Projects grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .project-item {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: #fff;
+        }
+
+        .project-thumb {
+            width: 100%;
+            height: 120px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 11px;
+            overflow: hidden;
+            position: relative;
+        }
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .project-title a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .project-title a:hover {
+            text-decoration: underline;
+        }
+
+        .project-desc {
+            font-size: 11px;
+            color: #666;
+        }
+
+        /* Skills section */
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .skill-item {
+            border-bottom: 1px dotted #ddd;
+            padding-bottom: 6px;
+        }
+
+        .skill-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 2px;
+        }
+
+        .skill-desc {
+            font-size: 11px;
+            color: #666;
+        }
+
+        /* Blog section */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .blog-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            border-bottom: 1px dotted #eee;
+        }
+
+        .blog-title a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .blog-title a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-date {
+            font-size: 11px;
+            color: #666;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        /* Announcements */
+        .announcements {
+            background: #fffacd;
+            border: 1px solid #ddb;
+        }
+
+        .announcement-item {
+            font-size: 11px;
+            padding: 4px 0;
+            border-bottom: 1px dotted #ddb;
+        }
+
+        .announcement-item:last-child {
+            border-bottom: none;
+        }
+
+        .announcement-date {
+            color: #666;
+            font-weight: bold;
+        }
+
+        /* Project detail page */
+        .project-detail {
+            display: none;
+        }
+
+        .project-detail.active {
+            display: block;
+        }
+
+        .project-header {
+            margin-bottom: 15px;
+        }
+
+        .project-main-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .project-tagline {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .project-screenshot {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            color: #333;
+            text-decoration: none;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-primary {
+            background: #0066cc;
+            color: white;
+            border-color: #0055aa;
+        }
+
+        .btn-primary:hover {
+            background: #0055aa;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 8px;
+            font-size: 12px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .features-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding: 15px 0;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-nav a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .language-toggle {
+            font-size: 11px;
+        }
+
+        .language-toggle a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body><br>
-  <br><br><br>
-  <div class="gear">
-    <i class="fas fa-cog"></i>
-  </div>
-  
-  <div class="message">Our site is currently under maintenance. Please check back soon.</div>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <nav class="nav">
+                <div class="logo">Prajwal Jamodkar</div>
+                <div class="nav-links">
+                    <a href="#" onclick="showHome()">About</a>
+                    <a href="#" onclick="showHome()">Projects</a>
+                    <a href="#" onclick="showHome()">Skills</a>
+                    <a href="#" onclick="showHome()">Blog</a>
+                    <a href="#" onclick="showHome()">Contact</a>
+                    <a href="/src/Prajwal Jamodkar.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main content -->
+        <main>
+            <!-- Home page -->
+            <div id="home" class="home-page">
+                <!-- About Me -->
+                <div class="card">
+                    <div class="card-title">About Me</div>
+                    <div class="about-content">
+                        <div class="profile-photo"></div>
+                        <div class="bio">
+                            Hi! I'm Prajwal Jamodkar, a software developer specializing in Java, Spring Boot, REST APIs, Docker, and Git. I enjoy building scalable backend systems and clean web solutions, with a strong foundation in system design and web development. Always eager to learn, explore new technologies, and contribute to open-source projects.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="card">
+                    <div class="card-title">Recent Projects</div>
+                    <div class="projects-grid">
+                        <div class="project-item">
+                            <div class="project-thumb"><img src="/src/jidnyasa.jpeg" alt="Jidnyasa Concept School Screenshot"></div>
+                            <div class="project-title">
+                                <a href="#" onclick="showProject('jidnyasa')">Jidnyasa Concept School Website</a>
+                            </div>
+                            <div class="project-desc">An educational website with admission forms, gallery, and responsive design.</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-thumb">Screenshot</div>
+                            <div class="project-title">
+                                <a href="#" onclick="showProject('spraymate')">SprayMate</a>
+                            </div>
+                            <div class="project-desc">A smart agriculture solution for crop spraying and farm management.</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-thumb">Screenshot</div>
+                            <div class="project-title">
+                                <a href="#" onclick="showProject('digipin')">DigiPin</a>
+                            </div>
+                            <div class="project-desc">A digital pinboard platform for saving, organizing, and sharing ideas.</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-thumb">Screenshot</div>
+                            <div class="project-title">
+                                <a href="#" onclick="showProject('invoice-tool')">Invoice Tool</a>
+                            </div>
+                            <div class="project-desc">A lightweight invoicing and billing application with PDF generation.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="card">
+                    <div class="card-title">Technical Skills</div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-name">Java & Backend Development</div>
+                            <div class="skill-desc">Strong foundation in Java SE/EE, Spring Boot, RESTful APIs, microservices, and system design principles.</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Web Development</div>
+                            <div class="skill-desc">Proficient in HTML5, CSS3, JavaScript (ES6+), and responsive design. Experience with React for modern UI development.</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Databases</div>
+                            <div class="skill-desc">Hands-on with MySQL and PostgreSQL. Experience in schema design, query optimization, and working with NoSQL (MongoDB).</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">DevOps & Cloud</div>
+                            <div class="skill-desc">Experience with Git & GitHub for version control, Docker for containerization, and CI/CD pipelines. Basic knowledge of AWS & cloud deployment.</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Tools & Practices</div>
+                            <div class="skill-desc">Agile methodologies, debugging, unit testing with JUnit, API testing with Postman, and documentation using Swagger/OpenAPI.</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Blog -->
+                <div class="card">
+                    <div class="card-title">Latest Blog Posts</div>
+                    <div class="blog-list">
+                        <div class="blog-item">
+                            <div class="blog-title">
+                                <a href="#">Getting Started with Spring Boot Microservices</a>
+                            </div>
+                            <div class="blog-date">Mar 15, 2024</div>
+                        </div>
+                        <div class="blog-item">
+                            <div class="blog-title">
+                                <a href="#">Best Practices for Java Exception Handling</a>
+                            </div>
+                            <div class="blog-date">Mar 08, 2024</div>
+                        </div>
+                        <div class="blog-item">
+                            <div class="blog-title">
+                                <a href="#">Building RESTful APIs: A Comprehensive Guide</a>
+                            </div>
+                            <div class="blog-date">Feb 28, 2024</div>
+                        </div>
+                        <div class="blog-item">
+                            <div class="blog-title">
+                                <a href="#">Database Optimization Techniques for Java Applications</a>
+                            </div>
+                            <div class="blog-date">Feb 20, 2024</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Announcements -->
+                <div class="card announcements">
+                    <div class="card-title">Recent Updates</div>
+                    <div class="announcement-item">
+                        <span class="announcement-date">Mar 18:</span> Released version 2.1 of Task Manager Pro with improved team collaboration features.
+                    </div>
+                    <div class="announcement-item">
+                        <span class="announcement-date">Mar 12:</span> Speaking at TechConf 2024 about microservices architecture patterns.
+                    </div>
+                    <div class="announcement-item">
+                        <span class="announcement-date">Mar 05:</span> Open sourced the Weather Dashboard project on GitHub.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project detail pages -->
+            <div id="jidnyasa" class="project-detail">
+                <a href="#" onclick="showHome()" class="back-link">← Back to Portfolio</a>
+                <div class="project-header">
+                    <h1 class="project-main-title">Jidnyasa Concept School Website</h1>
+                    <div class="project-tagline">Educational website with admission and gallery features</div>
+                </div>
+                <div class="project-screenshot">
+                    <img src="/src/jidnyasa.jpeg" alt="Jidnyasa Website Screenshot" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="project-buttons">
+                    <a href="#" class="btn btn-primary">Live Site</a>
+                    <a href="#" class="btn">GitHub Repo</a>
+                </div>
+                <div class="card">
+                    <div class="card-title">Key Features</div>
+                    <ul class="features-list">
+                        <li>Custom homepage with school introduction</li>
+                        <li>Admission forms with validation</li>
+                        <li>Photo gallery with event highlights</li>
+                        <li>Responsive and mobile-friendly design</li>
+                        <li>Fast loading performance with clean UI</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="spraymate" class="project-detail">
+                <a href="#" onclick="showHome()" class="back-link">← Back to Portfolio</a>
+                <div class="project-header">
+                    <h1 class="project-main-title">SprayMate</h1>
+                    <div class="project-tagline">Smart agriculture spraying and farm management</div>
+                </div>
+                <div class="project-screenshot">SprayMate Dashboard Screenshot</div>
+                <div class="project-buttons">
+                    <a href="#" class="btn btn-primary">Demo</a>
+                    <a href="#" class="btn">GitHub Repo</a>
+                </div>
+                <div class="card">
+                    <div class="card-title">Features</div>
+                    <ul class="features-list">
+                        <li>Crop spraying automation</li>
+                        <li>Weather-based spraying recommendations</li>
+                        <li>Farmer-friendly mobile interface</li>
+                        <li>Data collection for farm analytics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="digipin" class="project-detail">
+                <a href="#" onclick="showHome()" class="back-link">← Back to Portfolio</a>
+                <div class="project-header">
+                    <h1 class="project-main-title">DigiPin</h1>
+                    <div class="project-tagline">Digital pinboard for saving and sharing</div>
+                </div>
+                <div class="project-screenshot">DigiPin Interface Screenshot</div>
+                <div class="project-buttons">
+                    <a href="#" class="btn btn-primary">Try DigiPin</a>
+                    <a href="#" class="btn">GitHub Repo</a>
+                </div>
+                <div class="card">
+                    <div class="card-title">Features</div>
+                    <ul class="features-list">
+                        <li>Create and organize digital pins</li>
+                        <li>Tag-based content search</li>
+                        <li>User authentication system</li>
+                        <li>Simple and lightweight UI</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="invoice-tool" class="project-detail">
+                <a href="#" onclick="showHome()" class="back-link">← Back to Portfolio</a>
+                <div class="project-header">
+                    <h1 class="project-main-title">Invoice Tool</h1>
+                    <div class="project-tagline">Lightweight invoicing and billing solution</div>
+                </div>
+                <div class="project-screenshot">Invoice Tool Interface Screenshot</div>
+                <div class="project-buttons">
+                    <a href="#" class="btn btn-primary">Generate Invoice</a>
+                    <a href="#" class="btn">GitHub Repo</a>
+                </div>
+                <div class="card">
+                    <div class="card-title">Features</div>
+                    <ul class="features-list">
+                        <li>Create and manage client invoices</li>
+                        <li>Export invoices as PDF</li>
+                        <li>Simple and fast UI</li>
+                        <li>Reusable for freelancers & small businesses</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <div class="footer-nav">
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Resume</a>
+                    <a href="#">Sitemap</a>
+                </div>
+                <!-- <div class="language-toggle">
+                    <a href="#">English</a> | <a href="#">मराठी</a>
+                </div> -->
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showHome() {
+            // Hide all project details
+            const projectDetails = document.querySelectorAll('.project-detail');
+            projectDetails.forEach(detail => detail.classList.remove('active'));
+            
+            // Show home page
+            document.getElementById('home').style.display = 'block';
+        }
+
+        function showProject(projectId) {
+            // Hide home page
+            document.getElementById('home').style.display = 'none';
+            
+            // Hide all project details
+            const projectDetails = document.querySelectorAll('.project-detail');
+            projectDetails.forEach(detail => detail.classList.remove('active'));
+            
+            // Show selected project
+            document.getElementById(projectId).classList.add('active');
+        }
+
+        // Initialize
+        showHome();
+    </script>
 </body>
 </html>
