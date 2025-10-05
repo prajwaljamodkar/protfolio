@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XMYJ9QEVZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2XMYJ9QEVZ');
+</script>
     <link rel="icon" type="image/png" href="./src/icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -721,7 +730,7 @@
                         <div class="project-item">
                             <div class="project-thumb"><img src="/src/jidnyasa.jpeg" alt="Jidnyasa Concept School Screenshot"></div>
                             <div class="project-title">
-                                <a href="javascript:void(0)" onclick="showProject('jidnyasa')">Jidnyasa Concept School Website</a>
+            <a href="javascript:void(0)" onclick="showProject('jidnyasa')">Jidnyasa Concept School Website</a>
                             </div>
                             <div class="project-desc">An educational website with admission forms, gallery, and responsive design.</div>
                         </div>
@@ -796,71 +805,71 @@
                     <p>Loading updates...</p>
                 </div>
                 </div>
-<script>
-async function loadUpdates() {
-  try {
-    const response = await fetch("https://api.github.com/users/prajwaljamodkar/events");
-    if (!response.ok) throw new Error("GitHub API error: " + response.status);
+                <script>
+                async function loadUpdates() {
+                try {
+                    const response = await fetch("https://api.github.com/users/prajwaljamodkar/events");
+                    if (!response.ok) throw new Error("GitHub API error: " + response.status);
 
-    const events = await response.json();
+                    const events = await response.json();
 
-    let html = "";
-    let count = 0;
+                    let html = "";
+                    let count = 0;
 
-    for (let event of events) {
-      if (count >= 5) break; // stop after 5 valid updates
+                    for (let event of events) {
+                    if (count >= 5) break; // stop after 5 valid updates
 
-      let date = new Date(event.created_at);
-      let formattedDate = date.toLocaleDateString("en-US", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-      });
+                    let date = new Date(event.created_at);
+                    let formattedDate = date.toLocaleDateString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric"
+                    });
 
-      let text = "";
+                    let text = "";
 
-      if (event.type === "PushEvent" && event.payload.commits?.length > 0) {
-        let commit = event.payload.commits[0];
-        text = `<a href="https://github.com/${event.repo.name}/commit/${commit.sha}" target="_blank">${commit.message}</a>`;
-      } 
-      else if (event.type === "PullRequestEvent" && event.payload.pull_request) {
-        let pr = event.payload.pull_request;
-        text = `Opened PR: <a href="${pr.html_url}" target="_blank">#${pr.number}</a>`;
-      } 
-      else if (event.type === "IssuesEvent" && event.payload.issue) {
-        let issue = event.payload.issue;
-        text = `Worked on Issue: <a href="${issue.html_url}" target="_blank">#${issue.number}</a>`;
-      } 
-      else {
-        continue;
-      }
+                    if (event.type === "PushEvent" && event.payload.commits?.length > 0) {
+                        let commit = event.payload.commits[0];
+                        text = `<a href="https://github.com/${event.repo.name}/commit/${commit.sha}" target="_blank">${commit.message}</a>`;
+                    } 
+                    else if (event.type === "PullRequestEvent" && event.payload.pull_request) {
+                        let pr = event.payload.pull_request;
+                        text = `Opened PR: <a href="${pr.html_url}" target="_blank">#${pr.number}</a>`;
+                    } 
+                    else if (event.type === "IssuesEvent" && event.payload.issue) {
+                        let issue = event.payload.issue;
+                        text = `Worked on Issue: <a href="${issue.html_url}" target="_blank">#${issue.number}</a>`;
+                    } 
+                    else {
+                        continue;
+                    }
 
-      html += `
-        <div class="announcement-item" style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
-          <span style="flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${text}</span>
-          <span class="announcement-date" style="text-align:right; white-space:nowrap;">
-            ${formattedDate}<br>
-            <small style="color:#666;">${event.repo.name}</small>
-          </span>
-        </div>
-      `;
+                    html += `
+                        <div class="announcement-item" style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+                        <span style="flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${text}</span>
+                        <span class="announcement-date" style="text-align:right; white-space:nowrap;">
+                            ${formattedDate}<br>
+                            <small style="color:#666;">${event.repo.name}</small>
+                        </span>
+                        </div>
+                    `;
 
-      count++;
-    }
+                    count++;
+                    }
 
-    document.getElementById("updates-list").innerHTML = html || "<p>No recent activity</p>";
-  } catch (err) {
-    document.getElementById("updates-list").innerHTML = "<p>Error loading updates</p>";
-    console.error("GitHub Updates Error:", err);
-  }
-}
+                    document.getElementById("updates-list").innerHTML = html || "<p>No recent activity</p>";
+                } catch (err) {
+                    document.getElementById("updates-list").innerHTML = "<p>Error loading updates</p>";
+                    console.error("GitHub Updates Error:", err);
+                }
+                }
 
-// Load immediately on page load
-loadUpdates();
+                // Load immediately on page load
+                loadUpdates();
 
-// Refresh every 1 minute (60000 ms)
-setInterval(loadUpdates, 60000);
-</script>
+                // Refresh every 1 minute (60000 ms)
+                setInterval(loadUpdates, 60000);
+                </script>
 
 
 <!-- <script>
