@@ -861,7 +861,7 @@
                 // Refresh every 1 minute (60000 ms)
                 setInterval(loadUpdates, 60000);
                 </script>
-
+            </div>
 
 <!-- <script>
 async function loadUpdates() {
@@ -1081,14 +1081,14 @@ loadUpdates();
             // Show home page
             document.getElementById('home').style.display = 'block';
         }
-        function showProject(projectId, event) {
-    if (event) event.preventDefault(); // stop href="#" from reloading
+//         function showProject(projectId, event) {
+//     if (event) event.preventDefault(); // stop href="#" from reloading
     
-    document.getElementById('home').style.display = 'none';
-    const projectDetails = document.querySelectorAll('.project-detail');
-    projectDetails.forEach(detail => detail.classList.remove('active'));
-    document.getElementById(projectId).classList.add('active');
-}
+//     document.getElementById('home').style.display = 'none';
+//     const projectDetails = document.querySelectorAll('.project-detail');
+//     projectDetails.forEach(detail => detail.classList.remove('active'));
+//     document.getElementById(projectId).classList.add('active');
+// }
 
 // //    
 //         function showProject(projectId) {
@@ -1131,6 +1131,17 @@ loadUpdates();
                 navLinks.classList.remove('active');
             }
         });
+                function showProject(projectId) {
+            // Hide home page
+            document.getElementById('home').style.display = 'none';
+            
+            // Hide all project details
+            const projectDetails = document.querySelectorAll('.project-detail');
+            projectDetails.forEach(detail => detail.classList.remove('active'));
+            
+            // Show selected project
+            document.getElementById(projectId).classList.add('active');
+        }
 
         // Initialize
         showHome();
