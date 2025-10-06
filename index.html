@@ -477,6 +477,11 @@
         .footer-nav a:hover {
             text-decoration: underline;
         }
+        .footer-copy {
+            font-size: 13px;
+            color: #999;
+            margin-top: 10px;
+        }
 
         /* Mobile Styles */
         @media (max-width: 768px) {
@@ -701,7 +706,7 @@
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
                         </a>
-                        <a href="mailto:prajwaljamodkar@gmail.com" class="social-icon email" title="Email">
+                        <a href="mailto:prajwaljamodkar1111@gmail.com" class="social-icon email" title="Email">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.9.732-1.636 1.636-1.636h.749L12 10.58l9.615-6.759h.749c.904 0 1.636.732 1.636 1.636z"/>
                             </svg>
@@ -779,6 +784,109 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Certificates -->
+
+                <style>
+                    .cert-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    margin-top: 10px;
+                }
+
+                .cert-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 15px;
+                    border-bottom: 1px dotted #ddd;
+                    padding-bottom: 12px;
+                }
+
+                .cert-thumb {
+                    width: 200px;
+                    height: 120px;
+                    object-fit: contain;
+                    border-radius: 8px;
+                    border: 1px solid #dddddd00;
+                    background: #ffffff00;
+                    padding: 4px;
+                }
+
+                .cert-info {
+                    flex: 1;
+                }
+
+                .cert-name a {
+                    font-weight: bold;
+                    font-size: 16px;
+                    text-decoration: none;
+                    color: #0a66c2; /* LinkedIn blue */
+                }
+
+                .cert-name a:hover {
+                    text-decoration: underline;
+                }
+
+                .cert-org {
+                    font-size: 14px;
+                    color: #555;
+                    margin: 2px 0;
+                }
+
+                .cert-desc {
+                    font-size: 13px;
+                    color: #666;
+                }
+
+                    </style>
+                        
+
+                <div class="card">
+                    <div class="card-title" id="certificates">Certificates & Licenses</div>
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <div class="cert-info">
+                                <div class="cert-name">
+                                    <a href="https://www.oracle.com/java/technologies/javase/certification.html" target="_blank">
+                                        Java Foundation 🔗
+                                    </a>
+                                </div>
+                                <div class="cert-org">Oracle · Issued Mar 2025</div>
+                                <div class="cert-desc">This certification demonstrates a developer's proficiency in Java programming and is recognized by employers as a mark of excellence and technical capability.</div>
+                                <img src="./src/certificates/java_foundation.png" alt="Oracle" class="cert-thumb">
+                            </div>
+                        </div>
+                        
+                        <div class="cert-item">
+                            <div class="cert-info">
+                                <div class="cert-name">
+                                    <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/udmxiyHeqYQLkTPvf_9PBTqmSxAf6zZTseP_68de950b2c12fb5f7247c4ed_1759421526464_completion_certificate.pdf" target="_blank">
+                                        Deloitte Australia - Technology 🔗
+                                    </a>
+                                </div>
+                                <div class="cert-org">theforage · Issued Oct 2025</div>
+                                <div class="cert-desc"></div>
+                                <img src="./src/certificates/deloitte_technology.png" alt="Deloitte" class="cert-thumb">
+                            </div>
+                        </div>
+
+                        <div class="cert-item">
+                            <div class="cert-info">
+                                <div class="cert-name">
+                                    <a href="https://www.aws.training/Transcript/CompletionCertificate/XXXX" target="_blank">
+                                        Master Java Concurrency & Multithreading 🔗
+                                    </a>
+                                </div>
+                                <div class="cert-org">Scaler · Issued Sept 2025</div>
+                                <div class="cert-desc">The certificate is for participating in and upskilling with the "Master Java Concurrency & Multithreading Masterclass".</div>
+                                <img src="./src/certificates/scaler_multithreading_masterclass.png" alt="Scaler" class="cert-thumb">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
 
                 <!-- Posts -->
                 <div class="card" id="posts">
@@ -1067,11 +1175,12 @@ loadUpdates();
         <footer class="footer">
             <div class="footer-links">
                 <div class="footer-nav">
-                    <a href="#">About</a>
+                    <a href="#about">About</a>
                     <a href="#">Contact</a>
-                    <a href="#">Resume</a>
+                    <a href="./src/Prajwal Jamodkar.pdf">Resume</a>
                     <a href="#">Sitemap</a>
                 </div>
+                <div class="footer-copy">© 2025 prajwal.engineer. All rights reserved.</div>
             </div>
         </footer>
     </div>
