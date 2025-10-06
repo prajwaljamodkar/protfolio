@@ -655,6 +655,17 @@
         .btn {
             transition: all 0.3s ease-in-out;
         }
+        .twitter-container {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .twitter-timeline {
+            width: 100% !important;
+            min-width: 100px;
+        }
+
     </style>
 </head>
 <body>
@@ -890,15 +901,19 @@
 
                 <!-- Posts -->
                 <div class="card" id="posts">
-                <div class="card-title">Latest Posts</div>
-                <a class="twitter-timeline" 
-                    data-height="400" 
-                    data-theme="light" 
-                    href="https://twitter.com/igl__prajwal?ref_src=twsrc%5Etfw">
-                    Tweets by Prajwal Jamodkar
-                </a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div class="card-title">Latest Posts</div>
+                    <div class="twitter-container">
+                        <a class="twitter-timeline" 
+                        data-height="400" 
+                        data-theme="light" 
+                        href="https://twitter.com/igl__prajwal?ref_src=twsrc%5Etfw">
+                            Tweets by Prajwal Jamodkar
+                        </a>
+                    </div>
                 </div>
+
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 
                 <!-- Announcements -->
@@ -974,109 +989,6 @@
                 setInterval(loadUpdates, 60000);
                 </script>
             </div>
-
-<!-- <script>
-async function loadUpdates() {
-  try {
-    const response = await fetch("https://api.github.com/repos/prajwaljamodkar/protfolio/commits?sha=main");
-    if (!response.ok) throw new Error("GitHub API error: " + response.status);
-
-    const commits = await response.json();
-
-    let html = "";
-    let count = 0;
-
-    for (let commit of commits) {
-      if (count >= 5) break;
-
-      let date = new Date(commit.commit.author.date);
-      let formattedDate = date.toLocaleString("en-US", { month: "short", year: "numeric" });
-
-      // Short SHA
-      let shortSha = commit.sha.substring(0, 7);
-
-      // Truncate message
-      let commitMsg = commit.commit.message.length > 80
-        ? commit.commit.message.substring(0, 77) + "..."
-        : commit.commit.message;
-// ${shortSha} –
-      let text = `<a href="${commit.html_url}" target="_blank" style="color:#0066cc; text-decoration:none;"> ${commitMsg}</a>`;
-
-      html += `
-        <div class="announcement-item" style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
-          <span style="flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${text}</span>
-          <span class="announcement-date" style="text-align:right; white-space:nowrap;">
-            ${formattedDate}<br>
-            <small style="color:#666;">${commit.commit.author.name}</small>
-          </span>
-        </div>
-      `;
-
-      count++;
-    }
-
-    document.getElementById("updates-list").innerHTML = html || "<p>No recent commits</p>";
-  } catch (err) {
-    document.getElementById("updates-list").innerHTML = "<p>Error loading commits</p>";
-    console.error("GitHub Commits Error:", err);
-  }
-}
-
-loadUpdates();
-</script> -->
-<!-- Working -->
-<!--                 <script>
-async function loadUpdates() {
-  try {
-    const response = await fetch("https://api.github.com/users/prajwaljamodkar/events");
-    if (!response.ok) throw new Error("GitHub API error: " + response.status);
-
-    const events = await response.json();
-
-    let html = "";
-    let count = 0;
-
-    for (let event of events) {
-      if (count >= 5) break; // stop once we collected 5 valid updates
-
-      let date = new Date(event.created_at);
-      let formattedDate = date.toLocaleString("en-US", { month: "short", year: "numeric" });
-
-      let text = "";
-      if (event.type === "PushEvent" && event.payload.commits.length > 0) {
-        let commitMsg = event.payload.commits[0].message;
-        text = `Commit: ${commitMsg}`;
-      } else if (event.type === "PullRequestEvent") {
-        text = `Opened a PR`;
-      } else if (event.type === "IssuesEvent") {
-        text = `Worked on an issue`;
-      } else {
-        continue; // skip unsupported event
-      }
-
-      html += `
-        <div class="announcement-item" style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
-          <span style="flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${text}</span>
-          <span class="announcement-date" style="text-align:right; white-space:nowrap;">
-            ${formattedDate}<br>
-            <small style="color:#666;">${event.repo.name}</small>
-          </span>
-        </div>
-      `;
-
-      count++; // count only valid events
-    }
-
-    document.getElementById("updates-list").innerHTML = html || "<p>No recent activity</p>";
-  } catch (err) {
-    document.getElementById("updates-list").innerHTML = "<p>Error loading updates</p>";
-    console.error("GitHub Updates Error:", err);
-  }
-}
-
-loadUpdates();
-</script> -->
-
 
             <!-- Project detail pages -->
             <div id="jidnyasa" class="project-detail">
@@ -1258,6 +1170,32 @@ loadUpdates();
 
         // Initialize
         showHome();
+        document.addEventListener("DOMContentLoaded", function() {
+    const timeline = document.querySelector(".twitter-timeline");
+    if(window.innerWidth < 768) { // mobile devices
+        timeline.setAttribute("data-height", "600");
+    }
+});ne.setAttribute("data-height", "600");
+    ne.setAttribute("data-width", "800");
+    ne.setAttribute("data-type", "iframe");
+        function sharePortfolio() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Prajwal Jamodkar - Software Developer',
+                    text: 'Check out my portfolio!',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+            } else {
+                alert('Share feature is not supported in your browser. Please copy the URL to share.');
+            }
+        }function shareLink(url) {
+    navigator.clipboard.writeText(url);
+}navigator.clipboard.writeText(url).then(() => {
+    alert('URL copied to clipboard');
+});
     </script>
 </body>
 </html>
