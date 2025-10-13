@@ -69,7 +69,7 @@
         }
 
         .nav-links a:hover {
-            background-color: #f0f8ff;
+            /* background-color: #f0f8ff; */
             text-decoration: underline;
         }
 
@@ -149,8 +149,8 @@
         }
 
         .social-icon:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            /* transform: translateY(-3px); */
+            /* box-shadow: 0 5px 15px rgba(0,0,0,0.2); */
         }
 
         .social-icon.github {
@@ -234,6 +234,8 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            object-fit: contain;
+
         }
 
         .project-title {
@@ -363,7 +365,7 @@
         }
 
         .project-screenshot {
-            width: 100%;
+            /* width: 100%;
             height: 300px;
             background: #f0f0f0;
             border: 2px solid #ddd;
@@ -373,7 +375,8 @@
             align-items: center;
             justify-content: center;
             color: #666;
-            overflow: hidden;
+            overflow: hidden; */
+            object-fit: fill;
         }
 
         .project-buttons {
@@ -680,7 +683,7 @@
                     <a href="#projects" onclick="showHome(); closeMobileMenu()">Projects</a>
                     <a href="#skills" onclick="showHome(); closeMobileMenu()">Skills</a>
                     <a href="#posts" onclick="showHome(); closeMobileMenu()">Posts</a>
-                    <a href="#contact" onclick="showHome(); closeMobileMenu()">Contact</a>
+                    <a href="#certificate" onclick="showHome(); closeMobileMenu()">Certificate</a>
                     <a id="break-line">|</a>
                     <a href="/src/Prajwal Jamodkar.pdf" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">Resume</a>
                 </div>
@@ -863,7 +866,7 @@
                                         Java Foundation 🔗
                                     </a>
                                 </div>
-                                <div class="cert-org">Oracle · Issued Mar 2025</div>
+                                <div class="cert-org">Oracle · Issued Oct 2025</div>
                                 <div class="cert-desc">This certification demonstrates a developer's proficiency in Java programming and is recognized by employers as a mark of excellence and technical capability.</div>
                                 <img src="./src/certificates/java_foundation.png" alt="Oracle" class="cert-thumb">
                             </div>
@@ -1088,9 +1091,9 @@
             <div class="footer-links">
                 <div class="footer-nav">
                     <a href="#about">About</a>
-                    <a href="#">Contact</a>
+                    <a href="#projects">Projects</a>
                     <a href="./src/Prajwal Jamodkar.pdf">Resume</a>
-                    <a href="#">Sitemap</a>
+                    <a href="#certificate">Certificate</a>
                 </div>
                 <div class="footer-copy">© 2025 prajwal.engineer. All rights reserved.</div>
             </div>
